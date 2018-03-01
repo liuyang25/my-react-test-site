@@ -5,8 +5,8 @@ import {
   Redirect
 } from 'react-router-dom';
 
-import Hello from '../pages/hello';
-import Page404 from '../pages/404';
+import Hello from 'pages/hello';
+import Page404 from 'pages/404';
 
 export function mainIndex() {
   return (
