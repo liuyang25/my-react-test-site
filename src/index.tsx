@@ -6,7 +6,7 @@ import { createStore } from 'redux';
 import { enthusiasm } from './reducers/index';
 import { StoreState } from './types/index';
 
-import './index.css';
+import './index.less';
 
 const store = createStore<StoreState>(enthusiasm, {
   enthusiasmLevel: 1,

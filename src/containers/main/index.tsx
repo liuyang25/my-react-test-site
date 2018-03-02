@@ -1,6 +1,6 @@
 import * as React from 'react';
-import './style.css';
 import { mainIndex } from 'router/page_index';
+import './style.less';
 
 const logo = require('logo.svg');
 
