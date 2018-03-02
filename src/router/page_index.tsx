@@ -5,13 +5,13 @@ import {
   Redirect
 } from 'react-router-dom';
 
-import Hello from 'pages/hello';
+import Home from 'pages/home';
 import Page404 from 'pages/404';
 
 export function mainIndex() {
   return (
     <Switch>
-      <Route exact={true} path="/" component={Hello} /> 
+      <Route exact={true} path="/" component={Home} /> 
       <Redirect to="/404" />
     </Switch>
   );
