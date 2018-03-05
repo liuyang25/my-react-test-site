@@ -146,6 +146,9 @@ module.exports = {
             include: paths.appSrc,
             use: [
               {
+                loader: require.resolve('babel-loader'),
+              },
+              {
                 loader: require.resolve('ts-loader'),
                 options: {
                   // disable type checker - we will use it in fork plugin
