@@ -1,6 +1,6 @@
 import React from 'react';
 import './style.less';
-// import IconButton from 'material-ui/IconButton';
+import { Button } from 'antd';
 
 export interface Props {
   name: string;
@@ -19,6 +19,7 @@ function Hello({ name, enthusiasmLevel = 1, onIncrement, onDecrement }: Props) {
       <div className="greeting">
         Hello {name + getExclamationMarks(enthusiasmLevel)}
       </div>
+      <Button>hehe</Button>
     </div>
   );
 }
