@@ -21,6 +21,8 @@
         "jsdoc-format": true,
         "jsx-no-lambda": false,
         "jsx-no-multiline-js": false,
+        "jsx-boolean-value": false,
+        "jsx-wrap-multiline": false,
         "label-position": true,
         "max-line-length": [ true, 120 ],
         "member-ordering": [
@@ -33,7 +35,7 @@
         "no-arg": true,
         "no-bitwise": true,
         "no-console": [
-            true,
+            false,
             "log",
             "error",
             "debug",
@@ -44,7 +46,7 @@
         ],
         "no-consecutive-blank-lines": true,
         "no-construct": true,
-        "no-debugger": true,
+        "no-debugger": false,
         "no-duplicate-variable": true,
         "no-empty": true,
         "no-eval": true,
