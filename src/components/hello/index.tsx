@@ -1,5 +1,5 @@
 import React from 'react';
-import './style.less';
+import './style.css';
 import { Button } from 'antd';
 
 export interface Props {

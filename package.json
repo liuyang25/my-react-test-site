@@ -57,11 +57,13 @@
     "@types/react-dom": "^16.0.4",
     "@types/react-redux": "^5.0.15",
     "@types/react-router-dom": "^4.2.4",
+    "css-loader": "^0.28.7",
     "enzyme": "^3.3.0",
     "less": "^3.0.1",
     "less-loader": "^4.0.6",
     "react-addons-test-utils": "^15.6.2",
-    "typescript": "^2.7.2"
+    "typescript": "^2.7.2",
+    "typings-for-css-modules-loader": "^1.7.0"
   },
   "jest": {
     "collectCoverageFrom": [
