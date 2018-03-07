@@ -4,11 +4,13 @@ import { Layout, Menu, Icon } from 'antd';
 const { SubMenu } = Menu;
 const { Header, Content, Footer, Sider } = Layout;
 import { Link } from 'react-router-dom';
+import { observer } from 'mobx-react';
 
 import styles from './style.less';
 
 const logo = require('logo.svg');
 
+@observer
 export default class App extends React.PureComponent {
   state = {
     collapsed: true,

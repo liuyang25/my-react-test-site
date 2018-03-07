@@ -14,9 +14,9 @@ interface Page {
   pages?: Page[]; // pages
 }
 import Home from 'pages/home';
+import Demo from 'pages/demo/demo';
 import Demo1 from 'pages/demo/demo1';
 import Demo2 from 'pages/demo/demo2';
-import Demo3 from 'pages/demo/demo3';
 import Page404 from 'pages/404';
 
 export const mainPages: Page[] = [
@@ -27,26 +27,26 @@ export const mainPages: Page[] = [
     icon: 'home'
   },
   {
-    component: Demo1,
-    name: 'Demo1',
-    path: '/demo1',
+    component: Demo,
+    name: 'Demo',
+    path: '/demo',
     icon: 'pie-chart',
-  },
-  {
-    component: Demo2,
-    name: 'Demo2',
-    path: '/demo2',
-    icon: 'desktop',
   },
   {
     name: 'submenuDemo',
     icon: 'team',
     pages: [
       {
-        component: Demo3,
-        name: 'subDemo',
-        path: '/demo3',
-      }
+        component: Demo1,
+        name: 'subDemo1',
+        path: '/demo1',
+      },
+      {
+        component: Demo2,
+        name: 'subDemo2',
+        path: '/demo2',
+        icon: 'desktop',
+      },
     ]
   }
 ];
