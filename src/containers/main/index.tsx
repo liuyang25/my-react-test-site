@@ -23,12 +23,12 @@ export default class App extends React.PureComponent {
       if (!page.pages) {
         return (
           <Menu.Item key={page.path} >
-            {page.icon && <Icon type={page.icon} />}
-            <span className={styles.menuText}>
-              <Link to={page.path} className={styles.menuText}>
+            <Link to={page.path} className={styles.menuText}>
+              {page.icon && <Icon type={page.icon} />}
+              <span className={styles.menuText}>
                 {page.name}
-              </Link>
-            </span>
+              </span>
+            </Link>
           </Menu.Item>
         );
       } else {
