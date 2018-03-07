@@ -11,7 +11,7 @@ const logo = require('logo.svg');
 
 export default class App extends React.PureComponent {
   state = {
-    collapsed: false,
+    collapsed: true,
   };
   onCollapse = () => {
     this.setState({ collapsed: !this.state.collapsed });
@@ -22,7 +22,11 @@ export default class App extends React.PureComponent {
         return (
           <Menu.Item key={page.path} >
             {page.icon && <Icon type={page.icon} />}
-            <span className={styles.menuText}><Link to={page.path}>{page.name}</Link></span>
+            <span className={styles.menuText}>
+              <Link to={page.path} className={styles.menuText}>
+                {page.name}
+              </Link>
+            </span>
           </Menu.Item>
         );
       } else {
@@ -44,15 +48,14 @@ export default class App extends React.PureComponent {
 
     return (
       <div className={styles.app}>
-        <div className={styles.appHeader}>
-          <img src={logo} className={styles.appLogo} alt="logo" />
-          <span>Welcome to React</span>
-        </div>
-        <Layout style={{ minHeight: '100vh' }}>
+        <Layout style={{height: '100vh'}}>
           <Sider
             collapsed={this.state.collapsed}
           >
             <div className="logo" />
+            <Link to="/home">
+              <img src={logo} className={styles.appLogo} alt="logo" />
+            </Link>
             <Menu
               theme="dark"
               defaultSelectedKeys={['1']}
@@ -70,7 +73,9 @@ export default class App extends React.PureComponent {
             </div>
           </Sider>
           <Layout>
-            <Header style={{ background: '#fff', padding: 0 }} />
+            <Header className={styles.appHeader}>
+              <span>Welcome to React</span>
+            </Header>
             <Content style={{ margin: '0 16px' }}>
               {mainIndex()}
             </Content>
