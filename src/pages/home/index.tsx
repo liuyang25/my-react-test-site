@@ -13,8 +13,8 @@ class Home extends React.Component<Props> {
     const heheImg = require('assets/images/hehe.jpg');
     return (
       <div>
-        <p>Hello {this.props.loginStore.userName}</p>
         <img src={heheImg} alt="hehe"/>
+        <span style={{ fontSize: '30px' }}>Hello {this.props.loginStore.userName}</span>
       </div>
     );
   }
