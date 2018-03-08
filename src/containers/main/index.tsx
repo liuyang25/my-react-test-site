@@ -69,7 +69,7 @@ export default class App extends React.Component<Props> {
         />
         : null;
       return (
-        <div style={{ height: '100vh', paddingTop: '10vh' }}>
+        <div style={{ paddingTop: '10vh' }}>
           <Input
             placeholder="Enter your username"
             prefix={<Icon type="user" style={{ color: 'rgba(0,0,0,.25)' }} />}

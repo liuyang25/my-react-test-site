@@ -1,7 +1,7 @@
 import React from 'react';
 import { Card } from 'antd';
 import { DemoStore } from 'stores/demoStore';
-import { inject } from 'mobx-react';
+import { inject, observer } from 'mobx-react';
 import styles from './style.less';
 
 export interface Props {
@@ -9,7 +9,8 @@ export interface Props {
 }
 
 @inject('demoStore')
-export default class Demo1 extends React.PureComponent<Props> {
+@observer
+export default class Demo1 extends React.Component<Props> {
   render() {
     return (
       <div className={styles.demo1}>
