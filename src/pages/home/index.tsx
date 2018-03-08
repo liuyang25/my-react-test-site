@@ -1,31 +1,20 @@
-import Hello from 'components/hello';
-import * as actions from 'actions/';
-import { StoreState } from 'types/index';
-import { connect, Dispatch } from 'react-redux';
 import * as React from 'react';
+import { LoginStore } from 'stores/loginStore';
+import { inject, observer } from 'mobx-react';
 
-export function mapStateToProps({ enthusiasmLevel, languageName }: StoreState) {
-  return {
-    enthusiasmLevel,
-    name: languageName,
-  };
+interface Props {
+  loginStore: LoginStore;
 }
 
-export function mapDispatchToProps(dispatch: Dispatch<actions.EnthusiasmAction>) {
-  return {
-    onIncrement: () => dispatch(actions.incrementEnthusiasm()),
-    onDecrement: () => dispatch(actions.decrementEnthusiasm()),
-  };
-}
-// export default connect(mapStateToProps, mapDispatchToProps)(Hello);
-class Home extends React.Component<any> {
-  constructor() {
-    super({});
-  }
+@inject('loginStore')
+@observer
+class Home extends React.PureComponent<Props> {
   render() {
     return (
-      <Hello name="hehe" />
+      <div>
+        <p>Hello {this.props.loginStore.userName}</p>
+      </div>
     );
   }
 }
-export default connect(mapStateToProps, mapDispatchToProps)(Home);
+export default Home;

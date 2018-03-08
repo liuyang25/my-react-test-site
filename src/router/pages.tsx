@@ -63,7 +63,12 @@ function renderPages(pages: Page[], defaultPage?: string) {
   const pagesNode = Array<JSX.Element>();
   const renderPage = page => {
     if ( !page.pages) {
-      pagesNode.push(<Route key={page.path} exact={page.exact} path={page.path} component={page.component} />);
+      pagesNode.push(<Route
+        key={page.path}
+        exact={page.exact}
+        path={page.path}
+        component={page.component}
+      />);
     } else {
       page.pages.forEach(renderPage);
     }

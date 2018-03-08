@@ -3,6 +3,7 @@ import { Button } from 'antd';
 import { DemoStore } from 'stores/demoStore';
 import { LogStore } from 'stores/logStore';
 import { inject } from 'mobx-react';
+import styles from './style.less';
 
 export interface Props {
   logStore: LogStore;
@@ -10,10 +11,10 @@ export interface Props {
 }
 
 @inject('demoStore', 'logStore')
-export default class Demo3 extends React.PureComponent<Props> {
+export default class Demo3 extends React.Component<Props> {
   render() {
     return (
-      <div>
+      <div className={styles.demo3}>
         <p>this is page demo3</p>
 
         <p>click button to generate a log</p>

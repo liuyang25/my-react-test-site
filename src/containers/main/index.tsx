@@ -1,24 +1,33 @@
 import * as React from 'react';
 import { mainPages, mainIndex } from 'router/pages';
-import { Layout, Menu, Icon } from 'antd';
-const { SubMenu } = Menu;
-const { Header, Content, Footer, Sider } = Layout;
 import { Link } from 'react-router-dom';
-import { observer } from 'mobx-react';
-
+import { inject, observer } from 'mobx-react';
+import { Layout, Menu, Icon, Input } from 'antd';
+import LoginInfo from 'components/loginInfo';
+import { LoginStore } from 'stores/loginStore';
 import styles from './style.less';
 
-const logo = require('logo.svg');
+interface Props {
+  loginStore: LoginStore;
+}
 
+const logo = require('logo.svg');
+const { SubMenu } = Menu;
+const { Header, Content, Footer, Sider } = Layout;
+
+@inject('loginStore')
 @observer
-export default class App extends React.PureComponent {
+export default class App extends React.Component<Props> {
   state = {
     collapsed: true,
+    userNameInput: '',
   };
+  userNameInputNode: any;
   onCollapse = () => {
     this.setState({ collapsed: !this.state.collapsed });
   }
   render() {
+    // 侧边列表
     const renderMenu = page => {
       if (!page.pages) {
         return (
@@ -47,6 +56,32 @@ export default class App extends React.PureComponent {
       }
     };
     const menus = mainPages.map(renderMenu);
+
+    // 输入名字框
+    const renderLogin = () => {
+      const suffix = this.state.userNameInput 
+        ? <Icon
+            type="close-circle"
+            onClick={() => {
+              this.setState({ userNameInput : '' });
+              this.userNameInputNode.focus();
+            }}
+        />
+        : null;
+      return (
+        <div style={{ height: '100vh', paddingTop: '10vh' }}>
+          <Input
+            placeholder="Enter your username"
+            prefix={<Icon type="user" style={{ color: 'rgba(0,0,0,.25)' }} />}
+            suffix={suffix}
+            value={this.state.userNameInput}
+            onChange={e => { this.setState({ userNameInput: e.target.value }); }}
+            onPressEnter={() => { this.props.loginStore.userName = this.state.userNameInput; }}
+            ref={node => this.userNameInputNode = node}
+          />
+        </div>
+      );
+    };
 
     return (
       <div className={styles.app}>
@@ -77,9 +112,13 @@ export default class App extends React.PureComponent {
           <Layout>
             <Header className={styles.appHeader}>
               <span>Welcome to React</span>
+              <LoginInfo {...this.props} />
             </Header>
             <Content style={{ margin: '0 16px' }}>
-              {mainIndex()}
+              {this.props.loginStore.userName
+                ? mainIndex()
+                : renderLogin()
+              }
             </Content>
             <Footer style={{ textAlign: 'center' }}>
               mail:liuyang25@126.com

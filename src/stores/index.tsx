@@ -1,13 +1,11 @@
-import demoStore, { DemoStore } from './demoStore';
-import logStore, { LogStore } from './logStore';
+import demoStore  from './demoStore';
+import logStore  from './logStore';
+import loginStore  from './loginStore';
 
-export interface Stores {
-  demoStore: DemoStore;
-  logStore: LogStore;
-}
-const stores: Stores = {
+const stores = {
   demoStore,
   logStore,
+  loginStore,
 };
  
 export default stores;
