@@ -6,3 +6,4 @@ export const appHeader: string;
 export const appIntro: string;
 export const menuText: string;
 export const menuButton: string;
+export const footer: string;

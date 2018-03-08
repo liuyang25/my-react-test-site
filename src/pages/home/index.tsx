@@ -8,11 +8,13 @@ interface Props {
 
 @inject('loginStore')
 @observer
-class Home extends React.PureComponent<Props> {
+class Home extends React.Component<Props> {
   render() {
+    const heheImg = require('assets/images/hehe.jpg');
     return (
       <div>
         <p>Hello {this.props.loginStore.userName}</p>
+        <img src={heheImg} alt="hehe"/>
       </div>
     );
   }

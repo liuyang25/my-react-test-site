@@ -120,7 +120,7 @@ export default class App extends React.Component<Props> {
                 : renderLogin()
               }
             </Content>
-            <Footer style={{ textAlign: 'center' }}>
+            <Footer style={{ textAlign: 'center' }} className={styles.footer} >
               mail:liuyang25@126.com
             </Footer>
           </Layout>
