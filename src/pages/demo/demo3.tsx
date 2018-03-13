@@ -12,13 +12,8 @@ export interface Props {
 }
 
 @inject('demoStore', 'logStore')
-export default class Demo3 extends React.PureComponent<Props> {
-  state = {
-    testStr1: '',
-    testStr2: '',
-    obNum: 0, 
-    nobNum: 0, 
-  };
+export default class Demo3 extends React.Component<Props> {
+  state = this.props.demoStore.data;
   handleUpdate(data: any) {
     this.setState(data);
     this.props.demoStore.data = data;

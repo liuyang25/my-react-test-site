@@ -6,6 +6,13 @@ export class DemoStore {
   @observable obNum: number;
   nobNum: number;
 
+  constructor() {
+    this.testStr1 = '';
+    this.testStr2 = '';
+    this.obNum = 0;
+    this.nobNum = 0;
+  }
+
   setTestStr1(str: string) {
     this.testStr1 = str;
   }
@@ -32,7 +39,7 @@ export class DemoStore {
     this.obNum = data.obNum;
     this.nobNum = data.nobNum;
   }
-  @computed
+
   get computedNum1() {
     return this.obNum;
   }
