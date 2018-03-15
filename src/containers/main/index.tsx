@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import { inject, observer } from 'mobx-react';
 import { Layout, Menu, Icon, Input } from 'antd';
 import LoginInfo from 'components/loginInfo';
+import DevTools from 'mobx-react-devtools';
 import { LoginStore } from 'stores/loginStore';
 import styles from './style.less';
 
@@ -72,6 +73,7 @@ export default class App extends React.Component<Props> {
         <div style={{ paddingTop: '10vh' }}>
           <Input
             placeholder="Enter your username"
+            className={styles.userInput}
             prefix={<Icon type="user" style={{ color: 'rgba(0,0,0,.25)' }} />}
             suffix={suffix}
             value={this.state.userNameInput}
@@ -85,6 +87,7 @@ export default class App extends React.Component<Props> {
 
     return (
       <div className={styles.app}>
+        {process.env.DEBUG && <DevTools />}
         <Layout style={{height: '100vh'}}>
           <Sider
             collapsed={this.state.collapsed}

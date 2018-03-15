@@ -15,6 +15,7 @@ export interface Props {
 // @observer
 export default class Demo extends React.Component<Props> {
   render() {
+    console.log(process.env);
     return (
       <div>
         <p>this is page demo</p>
