@@ -18,6 +18,7 @@ import Demo from 'pages/demo/demo';
 import Demo1 from 'pages/demo/demo1';
 import Demo2 from 'pages/demo/demo2';
 import Page404 from 'pages/404';
+import p5 from 'pages/p5';
 
 export const mainPages: Page[] = [
   {
@@ -31,6 +32,12 @@ export const mainPages: Page[] = [
     name: 'Demo',
     path: '/demo',
     icon: 'pie-chart',
+  },
+  {
+    component: p5,
+    name: 'p5',
+    path: '/p5',
+    icon: 'user',
   },
   {
     name: 'submenuDemo',
@@ -48,7 +55,7 @@ export const mainPages: Page[] = [
         icon: 'desktop',
       },
     ]
-  }
+  },
 ];
 
 export const blankPages = [
