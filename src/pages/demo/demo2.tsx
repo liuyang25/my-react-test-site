@@ -1,9 +1,8 @@
 import React from 'react';
-import { Card, Input, Icon, Button } from 'antd';
+import { Card, Input, Icon } from 'antd';
 import { LogStore } from 'stores/logStore';
 import { DemoStore } from 'stores/demoStore';
 import { observer, inject } from 'mobx-react';
-import { observable, computed, action } from 'mobx';
 import styles from './style.less';
 
 export interface Props {
@@ -21,20 +20,6 @@ export default class Demo2 extends React.Component<Props> {
 
   test1Node: any;
   test2Node: any;
-
-  @observable v1: 0;
-  @computed get v2() {
-    return this.v1 * 2;
-  }
-  @action.bound
-  handleClick() {
-    this.v1 += 1;
-  }
-
-  constructor(props: Props) {
-    super(props);
-    this.v1 = 0;
-  }
 
   render() {
     const suffix1 = this.state.test1Input 
@@ -58,10 +43,9 @@ export default class Demo2 extends React.Component<Props> {
 
     return (
       <div className={styles.demo2}>
-        <Card title="this is page demo2" bordered={false} style={{ width: 300 }}>
+        <p>this is page demo2:<br/> 通过action修改demoStore的值</p>
+        <Card bordered={false} style={{ width: 300 }}>
           <p style={{textAlign: 'left'}}>log: {this.props.logStore.log}</p>
-          <p style={{textAlign: 'left'}}>v1: {this.v1}</p>
-          <p style={{textAlign: 'left'}}>v2: {this.v2}</p>
           <Input
             placeholder="test set str1"
             prefix={<Icon type="edit" style={{ color: 'rgba(0,0,0,.25)' }} />}
@@ -81,7 +65,6 @@ export default class Demo2 extends React.Component<Props> {
             ref={node => this.test2Node = node}
           />
         </Card>
-        <Button onClick={this.handleClick}>test local variable</Button>
       </div>
     );
   }

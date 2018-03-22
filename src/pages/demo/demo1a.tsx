@@ -12,7 +12,7 @@ export interface Props {
 }
 
 @inject('demoStore', 'logStore')
-export default class Demo3 extends React.Component<Props> {
+export default class Demo1a extends React.Component<Props> {
   state = this.props.demoStore.data;
   handleUpdate(data: any) {
     this.setState(data);
@@ -21,7 +21,7 @@ export default class Demo3 extends React.Component<Props> {
   render() {
     return (
       <div className={styles.demo3}>
-        <p>this is page demo3</p>
+        <p>demo3:修改demoStore数据<br/>使用computed逆向衍化一次性赋值</p>
         <DatGui style={{ position: 'initial', margin: 'auto' }} data={this.state} onUpdate={e => this.handleUpdate(e)}>
           <DatString path="testStr1" label="testStr1" />
           <DatString path="testStr2" label="testStr2" />
