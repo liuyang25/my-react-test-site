@@ -27,6 +27,8 @@ $(window).load(function () {
       }
     });
   }
+  // remove demo dom
+  $(".demo").remove();
 
   // Some available articles
   var articles = mobx.observable([
@@ -54,7 +56,6 @@ $(window).load(function () {
 
   /** UI Logic */
   var $articles = $("#articles");
-    $articles.children("li").remove();
 
   // Make the articles list follow the array
   articles.observe(function (change) {
