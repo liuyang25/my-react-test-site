@@ -19,6 +19,7 @@ import Demo1 from 'pages/demo/demo1';
 import Demo2 from 'pages/demo/demo2';
 import Page404 from 'pages/404';
 import p5 from 'pages/p5';
+import jqueryPage from 'pages/jqueryPage';
 
 export const mainPages: Page[] = [
   {
@@ -38,6 +39,12 @@ export const mainPages: Page[] = [
     name: 'p5',
     path: '/p5',
     icon: 'user',
+  },
+  {
+    component: jqueryPage,
+    name: 'MobxJq',
+    path: '/mobxJq',
+    icon: 'loading',
   },
   {
     name: 'submenuDemo',
